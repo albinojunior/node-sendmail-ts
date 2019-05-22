@@ -27,17 +27,20 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.4",
+    "@types/email-templates": "^3.5.1",
     "@types/express": "^4.16.1",
     "@types/morgan": "^1.7.35",
     "@types/node": "^8.10.43",
+    "@types/nodemailer": "^6.1.0",
     "sucrase": "^3.10.0",
     "typescript": "^3.3.3333"
   },
   "scripts": {
-    "dev": "pm2 start ./node_modules/sucrase/bin/sucrase-node --name node-mailsend-dev -- ./src/index.ts --watch --color=true && pm2 log",
+    "start": "pm2 start ./node_modules/sucrase/bin/sucrase-node --name node-mailsend-dev -- ./src/index.ts --watch --color=true",
+    "poststart": "pm2 log",
+    "stop": "pm2 delete all",
     "prebuild": "sudo rm -rf build",
     "build": "sudo tsc",
-    "postbuild": "sudo pm2 start ecosystem.config.json && sudo pm2 log",
-    "stop": "pm2 delete all"
+    "postbuild": "sudo pm2 start ecosystem.config.json && sudo pm2 log"
   }
 }

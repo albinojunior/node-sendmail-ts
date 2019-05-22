@@ -35,7 +35,11 @@ Copy `.env.example` to `.env` and set environments
 ##  2. Running
 
 ```bash
-$ npm run dev
+$ npm start
+```
+- stop applications:
+```bash
+$ npm stop
 ```
 
 ## 3. Building
